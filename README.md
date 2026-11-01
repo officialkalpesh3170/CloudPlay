@@ -128,3 +128,5 @@ When moving from local development to production hosting, the recommended archit
 | **Total Estimated Cost** | — | — | **~\$35 – \$48 / month** |
 
 *(Note: Currently runs 100% locally with zero cloud costs).*
+#   C l o u d P l a y  
+ 
