@@ -1,0 +1,679 @@
+.hc-shell {
+  min-height: 100vh;
+  width: 100%;
+  background: #0b1020;
+  color: #f8fafc;
+  font-family: Inter, system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+.hc-topbar {
+  min-height: 76px;
+  padding: 12px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid #273248;
+  background: #111a2c;
+}
+
+.hc-back,
+.hc-restart,
+.hc-icon-button {
+  border: 1px solid #334155;
+  background: #1e293b;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  font-size: 14px;
+}
+
+.hc-back:hover,
+.hc-restart:hover,
+.hc-icon-button:hover {
+  background: #334155;
+}
+
+.hc-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hc-title strong {
+  display: block;
+  font-size: 19px;
+}
+
+.hc-title small {
+  display: block;
+  color: #94a3b8;
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+.hc-title-mark {
+  background: #f97316;
+  border-radius: 10px;
+  padding: 11px;
+  font-weight: 900;
+}
+
+.hc-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.hc-main {
+  max-width: 1200px;
+  margin: auto;
+  padding: 35px 24px;
+}
+
+.hc-intro-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.hc-kicker {
+  color: #fb923c;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.hc-intro-row h1 {
+  font-size: clamp(28px, 4vw, 42px);
+  margin: 9px 0;
+  letter-spacing: -1.5px;
+}
+
+.hc-intro-row p {
+  color: #94a3b8;
+  margin: 0;
+  font-size: 14px;
+}
+
+.hc-best {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #172338;
+  padding: 14px 20px;
+  border-radius: 14px;
+  border: 1px solid #334155;
+  color: #fbbf24;
+}
+
+.hc-best small,
+.hc-best strong {
+  display: block;
+}
+
+.hc-best small {
+  font-size: 10px;
+  color: #94a3b8;
+}
+
+.hc-best strong {
+  margin-top: 5px;
+  color: white;
+  font-size: 18px;
+}
+
+.hc-hud {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.hc-hud-item {
+  min-height: 76px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #172338;
+  border: 1px solid #334155;
+  border-radius: 13px;
+  position: relative;
+}
+
+.hc-hud-item > svg {
+  color: #fb923c;
+  width: 23px;
+  height: 23px;
+}
+
+.hc-hud-item small {
+  display: block;
+  color: #94a3b8;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.hc-hud-item strong {
+  display: block;
+  font-size: 20px;
+  margin-top: 4px;
+}
+
+.hc-hud-item em {
+  font-style: normal;
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.hc-fuel-track {
+  position: absolute;
+  bottom: 10px;
+  left: 50px;
+  right: 12px;
+  height: 4px;
+  background: #334155;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.hc-fuel-track span {
+  display: block;
+  height: 100%;
+  background: #22c55e;
+  transition: width 0.2s;
+}
+
+.hc-game-frame {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #72c9f4;
+  border: 1px solid #334155;
+  box-shadow: 0 20px 60px #0005;
+}
+
+.hc-game-label {
+  height: 43px;
+  padding: 0 17px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #172338;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.hc-game-label > span:last-child {
+  margin-left: auto;
+  color: #94a3b8;
+}
+
+.hc-live-dot {
+  height: 8px;
+  width: 8px;
+  background: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #22c55e;
+}
+
+.hc-flip-count {
+  color: #e2e8f0;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.hc-canvas {
+  display: block;
+  width: 100%;
+  height: 500px;
+  min-height: 300px;
+  background: #72c9f4;
+  touch-action: none;
+}
+
+.hc-overlay {
+  position: absolute;
+  inset: 43px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #08111dbb;
+  backdrop-filter: blur(5px);
+  z-index: 5;
+}
+
+.hc-result {
+  width: min(430px, 100%);
+  padding: 35px;
+  text-align: center;
+  background: #172338;
+  border: 1px solid #475569;
+  border-radius: 20px;
+}
+
+.hc-result h2 {
+  font-size: 28px;
+  margin: 12px 0;
+}
+
+.hc-result p {
+  color: #94a3b8;
+  line-height: 1.7;
+}
+
+.hc-result .hc-crash-reason {
+  color: #fdba74;
+  margin: 0;
+}
+
+.hc-result .hc-flip-summary {
+  margin: 0;
+  color: #cbd5e1;
+}
+
+.hc-achievement-list {
+  display: grid;
+  gap: 6px;
+  margin: 15px 0;
+}
+
+.hc-achievement-list span {
+  color: #fde68a;
+  background: #3a351e;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+.hc-result button,
+.hc-upgrade button {
+  padding: 12px 18px;
+  background: #f97316;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.hc-result-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.hc-result-buttons button {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.hc-result-buttons .hc-secondary {
+  background: #334155;
+}
+
+.hc-modal {
+  width: min(650px, 100%);
+  max-height: 90%;
+  overflow-y: auto;
+  padding: 25px;
+  background: #172338;
+  border: 1px solid #475569;
+  border-radius: 18px;
+}
+
+.hc-modal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hc-modal-head h2 {
+  margin: 7px 0;
+}
+
+.hc-modal-head button {
+  background: #334155;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 13px;
+  cursor: pointer;
+}
+
+.hc-wallet {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fbbf24;
+}
+
+.hc-upgrade-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.hc-upgrade {
+  padding: 17px;
+  background: #25344c;
+  border-radius: 12px;
+}
+
+.hc-upgrade svg {
+  color: #fb923c;
+}
+
+.hc-upgrade h3 {
+  font-size: 15px;
+}
+
+.hc-upgrade p {
+  font-size: 12px;
+  color: #94a3b8;
+  line-height: 1.5;
+}
+
+.hc-upgrade button {
+  width: 100%;
+  font-size: 12px;
+}
+
+.hc-vehicle-heading {
+  margin-top: 25px;
+}
+
+.hc-vehicle-list {
+  display: grid;
+  gap: 9px;
+}
+
+.hc-vehicle {
+  padding: 13px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  text-align: left;
+  gap: 5px;
+  background: #25344c;
+  color: white;
+  border: 1px solid #475569;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.hc-vehicle small {
+  grid-column: 1;
+  color: #94a3b8;
+}
+
+.hc-vehicle span {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  align-self: center;
+  color: #fbbf24;
+  font-size: 12px;
+}
+
+.hc-vehicle.chosen {
+  border-color: #f97316;
+}
+
+.hc-message {
+  color: #fbbf24;
+  font-size: 13px;
+}
+
+.hc-controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 20px;
+  padding: 20px;
+  background: #172338;
+  border: 1px solid #334155;
+  border-radius: 14px;
+}
+
+.hc-instructions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.hc-instructions strong {
+  color: white;
+}
+
+.hc-touch-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.hc-touch-controls button {
+  min-width: 110px;
+  padding: 14px 18px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 900;
+  cursor: pointer;
+  touch-action: none;
+}
+
+.hc-touch-controls button:first-child,
+.hc-touch-controls button:nth-child(3),
+.hc-touch-controls button:nth-child(4) {
+  background: #334155;
+  color: white;
+}
+
+.hc-touch-controls button:nth-child(2) {
+  background: #f97316;
+  color: white;
+}
+
+.hc-touch-controls button:active {
+  transform: scale(0.96);
+}
+
+.hc-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 20px 0;
+  color: #64748b;
+  font-size: 11px;
+}
+
+@media (max-width: 760px) {
+  .hc-topbar {
+    flex-wrap: wrap;
+    padding: 12px;
+  }
+
+  .hc-title {
+    order: -1;
+    width: 100%;
+  }
+
+  .hc-top-actions {
+    flex-wrap: wrap;
+  }
+
+  .hc-main {
+    padding: 22px 12px;
+  }
+
+  .hc-intro-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .hc-hud {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hc-canvas {
+    height: 380px;
+  }
+
+  .hc-controls-row {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .hc-instructions {
+    gap: 10px;
+  }
+
+  .hc-touch-controls button {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .hc-footer {
+    flex-direction: column;
+  }
+
+  .hc-upgrade-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ── Gyroscope Motion Styling & Mobile Scaling ────────────────────────────── */
+.hc-gyro-btn--on {
+  background: #0f766e !important;
+  color: #ccfbf1 !important;
+  border-color: #2dd4bf !important;
+  box-shadow: 0 0 14px rgba(45, 212, 191, 0.35);
+}
+
+.hc-gyro-top-btn {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 8px 12px;
+}
+
+.hc-gyro-touch-btn {
+  background: #1e293b;
+  color: #cbd5e1;
+  border: 1px solid #475569;
+  font-size: 11px;
+}
+
+@media (max-width: 760px) {
+  .hc-shell {
+    min-height: 100%;
+    padding-bottom: 24px;
+    touch-action: manipulation;
+  }
+
+  .hc-topbar {
+    min-height: 52px;
+    padding: 8px 12px;
+    gap: 10px;
+  }
+
+  .hc-title strong {
+    font-size: 15px;
+  }
+
+  .hc-title small {
+    display: none;
+  }
+
+  .hc-title-mark {
+    padding: 7px 9px;
+    font-size: 12px;
+  }
+
+  .hc-back, .hc-restart, .hc-icon-button {
+    padding: 8px 11px;
+    font-size: 12px;
+  }
+
+  .hc-main {
+    padding: 10px 10px;
+  }
+
+  .hc-intro-row {
+    margin-bottom: 10px;
+    gap: 8px;
+  }
+
+  .hc-intro-row h1 {
+    font-size: 20px;
+    margin: 2px 0;
+  }
+
+  .hc-intro-row p {
+    display: none;
+  }
+
+  .hc-best {
+    padding: 6px 12px;
+    border-radius: 10px;
+    font-size: 11px;
+  }
+
+  .hc-hud {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 8px 12px;
+    gap: 8px;
+  }
+
+  .hc-canvas {
+    height: clamp(190px, 34vh, 300px);
+    min-height: 190px;
+    border-radius: 12px;
+  }
+
+  .hc-instructions {
+    display: none; /* Hide keyboard legend on mobile touch */
+  }
+
+  .hc-controls-row {
+    margin-top: 10px;
+  }
+
+  .hc-touch-controls {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    width: 100%;
+  }
+
+  .hc-touch-controls button {
+    min-height: 52px;
+    padding: 12px 10px;
+    font-size: 13px;
+    font-weight: 800;
+    border-radius: 12px;
+    touch-action: manipulation;
+    user-select: none;
+  }
+
+  .hc-gyro-touch-btn {
+    grid-column: span 2;
+    min-height: 42px !important;
+    padding: 8px !important;
+  }
+}

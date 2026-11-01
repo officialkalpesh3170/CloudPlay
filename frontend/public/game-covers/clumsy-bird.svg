@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="60%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#7dd3fc"/>
+    </linearGradient>
+    <linearGradient id="pipe" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#15803d"/>
+      <stop offset="40%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#166534"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sky & Ground -->
+  <rect width="800" height="380" fill="url(#sky)"/>
+  <rect y="380" width="800" height="70" fill="#ded895"/>
+  <rect y="380" width="800" height="15" fill="#48c02c"/>
+
+  <!-- Clouds -->
+  <g fill="#ffffff" opacity="0.8">
+    <ellipse cx="120" cy="110" rx="60" ry="25"/>
+    <ellipse cx="150" cy="95" rx="40" ry="30"/>
+    <ellipse cx="650" cy="140" rx="80" ry="30"/>
+    <ellipse cx="690" cy="120" rx="50" ry="35"/>
+  </g>
+
+  <!-- Pipes -->
+  <g>
+    <!-- Top Pipe -->
+    <rect x="520" y="0" width="80" height="180" fill="url(#pipe)" stroke="#0f172a" stroke-width="3"/>
+    <rect x="510" y="155" width="100" height="30" fill="url(#pipe)" stroke="#0f172a" stroke-width="3"/>
+    <!-- Bottom Pipe -->
+    <rect x="520" y="280" width="80" height="100" fill="url(#pipe)" stroke="#0f172a" stroke-width="3"/>
+    <rect x="510" y="280" width="100" height="30" fill="url(#pipe)" stroke="#0f172a" stroke-width="3"/>
+  </g>
+
+  <!-- Clumsy Bird Character -->
+  <g transform="translate(300, 230) scale(1.6)">
+    <!-- Body -->
+    <ellipse cx="0" cy="0" rx="28" ry="22" fill="#fbbf24" stroke="#0f172a" stroke-width="2.5"/>
+    <!-- Belly -->
+    <ellipse cx="-4" cy="6" rx="16" ry="12" fill="#fef08a"/>
+    <!-- Wing -->
+    <ellipse cx="-12" cy="0" rx="14" ry="9" fill="#f59e0b" stroke="#0f172a" stroke-width="2"/>
+    <!-- Eye Outer -->
+    <circle cx="12" cy="-6" r="9" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+    <!-- Eye Pupil -->
+    <circle cx="15" cy="-6" r="4" fill="#0f172a"/>
+    <!-- Beak -->
+    <polygon points="18,-1 36,4 18,9" fill="#f97316" stroke="#0f172a" stroke-width="2"/>
+  </g>
+
+  <!-- Title & Banner -->
+  <g transform="translate(240, 80)">
+    <rect x="-10" y="-30" width="130" height="24" rx="12" fill="#0f172a" fill-opacity="0.5"/>
+    <text x="55" y="-14" fill="#fef08a" font-family="system-ui, sans-serif" font-weight="800" font-size="11" text-anchor="middle" letter-spacing="2">ARCADE CLASSIC</text>
+    <text x="0" y="25" fill="#ffffff" font-family="system-ui, sans-serif" font-weight="900" font-size="48" letter-spacing="-1" stroke="#0f172a" stroke-width="4" paint-order="stroke fill">
+      CLUMSY <tspan fill="#fbbf24">BIRD</tspan>
+    </text>
+  </g>
+</svg>

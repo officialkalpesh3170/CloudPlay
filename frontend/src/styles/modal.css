@@ -1,0 +1,304 @@
+/* ── Modal styles ──────────────────────────────────────────────────────────── */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 5, 12, 0.9);
+  backdrop-filter: blur(12px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  width: 100%;
+  max-width: 460px;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.7), var(--shadow-glow);
+  animation: modal-in 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes modal-in {
+  from { opacity: 0; transform: scale(0.88) translateY(20px); }
+  to   { opacity: 1; transform: scale(1)   translateY(0); }
+}
+
+.modal-header { text-align: center; margin-bottom: 32px; }
+
+.modal-logo {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--accent), #5c42c8);
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  color: white;
+  margin: 0 auto 18px;
+  box-shadow: 0 8px 24px rgba(123,104,238,0.5);
+}
+
+.modal-title {
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: -0.8px;
+  margin: 0 0 10px;
+}
+
+.modal-subtitle {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.modal-step { display: flex; flex-direction: column; gap: 14px; }
+
+.modal-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+.modal-input-row {
+  display: flex;
+  gap: 8px;
+}
+
+.modal-input {
+  flex: 1;
+  background: var(--bg-elevated);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 16px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.modal-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(123,104,238,0.15);
+}
+
+.modal-shuffle {
+  background: var(--bg-elevated);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  padding: 12px;
+  display: grid;
+  place-items: center;
+  transition: 0.2s;
+}
+
+.modal-shuffle:hover { color: var(--accent-light); border-color: var(--accent); }
+
+.modal-hint {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.modal-btn {
+  background: linear-gradient(135deg, var(--accent), #5c42c8);
+  color: white;
+  padding: 14px 24px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: 0.2s;
+  box-shadow: 0 6px 20px rgba(123,104,238,0.4);
+  margin-top: 8px;
+}
+
+.modal-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(123,104,238,0.5);
+}
+
+.modal-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Avatar grid */
+.modal-avatar-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 6px;
+}
+
+.modal-avatar-btn {
+  aspect-ratio: 1;
+  border-radius: 10px;
+  background: var(--bg-elevated);
+  border: 2px solid transparent;
+  font-size: 20px;
+  display: grid;
+  place-items: center;
+  transition: 0.18s;
+}
+
+.modal-avatar-btn:hover { border-color: rgba(123,104,238,0.4); background: rgba(123,104,238,0.1); }
+
+.modal-avatar-btn--active {
+  border-color: var(--accent);
+  background: rgba(123,104,238,0.15);
+  box-shadow: 0 0 12px rgba(123,104,238,0.3);
+}
+
+/* Preview */
+.modal-preview {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px;
+}
+
+.modal-preview-avatar { font-size: 36px; }
+
+.modal-preview strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.modal-preview p {
+  font-size: 11px;
+  color: var(--green);
+  margin: 4px 0 0;
+}
+
+/* Dots */
+.modal-progress {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+.modal-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: 0.2s;
+}
+
+.modal-dot--active { background: var(--accent); }
+
+/* ── Achievement toast ──────────────────────────────────────────────────────── */
+.achievement-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.achievement-toast-item {
+  background: var(--bg-elevated);
+  border: 1px solid rgba(255,209,102,0.4);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 280px;
+  animation: toast-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 20px rgba(255,209,102,0.15);
+}
+
+@keyframes toast-in {
+  from { opacity: 0; transform: translateX(60px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.achievement-toast-icon { font-size: 28px; }
+
+.achievement-toast-text strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.achievement-toast-text span {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.achievement-toast-badge {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--gold);
+  background: rgba(255,209,102,0.1);
+  border: 1px solid rgba(255,209,102,0.3);
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-top: 4px;
+  display: inline-block;
+}
+
+
+/* ── Mobile responsiveness for modals and toasts ─────────────────────────── */
+@media (max-width: 480px) {
+  .modal-overlay {
+    padding: 12px;
+  }
+  .modal-card {
+    padding: 24px 16px;
+    border-radius: var(--radius-lg);
+  }
+  .modal-header {
+    margin-bottom: 20px;
+  }
+  .modal-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    margin-bottom: 12px;
+  }
+  .modal-title {
+    font-size: 20px;
+  }
+  .modal-avatar-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 8px;
+  }
+  .modal-btn {
+    padding: 12px 18px;
+    font-size: 13px;
+  }
+
+  .achievement-toasts {
+    left: 12px;
+    right: 12px;
+    top: 12px;
+    max-width: calc(100vw - 24px);
+  }
+  .achievement-toast {
+    width: 100%;
+  }
+}

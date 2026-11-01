@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <radialGradient id="space" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#0d0520"/>
+      <stop offset="100%" stop-color="#030109"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7b68ee" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#7b68ee" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+  </defs>
+  
+  <!-- Space background -->
+  <rect width="800" height="450" fill="url(#space)"/>
+  
+  <!-- Stars -->
+  <g fill="#ffffff">
+    <circle cx="45" cy="30" r="1" opacity="0.8"/>
+    <circle cx="120" cy="80" r="1.5" opacity="0.6"/>
+    <circle cx="200" cy="20" r="1" opacity="0.9"/>
+    <circle cx="320" cy="60" r="0.8" opacity="0.7"/>
+    <circle cx="450" cy="30" r="1.2" opacity="0.8"/>
+    <circle cx="580" cy="70" r="1" opacity="0.6"/>
+    <circle cx="700" cy="40" r="1.5" opacity="0.9"/>
+    <circle cx="760" cy="90" r="0.8" opacity="0.7"/>
+    <circle cx="90" cy="150" r="1" opacity="0.5"/>
+    <circle cx="680" cy="180" r="1.2" opacity="0.7"/>
+    <circle cx="350" cy="120" r="0.8" opacity="0.6"/>
+    <circle cx="500" cy="200" r="1" opacity="0.5"/>
+    <circle cx="150" cy="300" r="1.5" opacity="0.4"/>
+    <circle cx="630" cy="320" r="1" opacity="0.6"/>
+    <circle cx="780" cy="280" r="1.2" opacity="0.7"/>
+    <circle cx="30" cy="400" r="0.8" opacity="0.5"/>
+    <circle cx="420" cy="380" r="1" opacity="0.4"/>
+    <circle cx="720" cy="420" r="1.5" opacity="0.6"/>
+    <circle cx="250" cy="440" r="0.8" opacity="0.5"/>
+    <circle cx="560" cy="410" r="1" opacity="0.7"/>
+  </g>
+  
+  <!-- Nebula glow -->
+  <ellipse cx="400" cy="225" rx="300" ry="200" fill="url(#glow)" opacity="0.4"/>
+  
+  <!-- Asteroids -->
+  <g opacity="0.9">
+    <!-- Large asteroid right -->
+    <polygon points="680,80 720,60 760,85 750,130 710,145 670,120" fill="#8b7355" stroke="#a8905a" stroke-width="2"/>
+    <polygon points="685,90 710,75 740,92 732,125 705,138 675,115" fill="#7a6445" opacity="0.3"/>
+    
+    <!-- Medium asteroid top left -->
+    <polygon points="80,50 115,35 145,55 140,95 105,108 70,85" fill="#9a8060" stroke="#b09070" stroke-width="1.5"/>
+    
+    <!-- Small asteroid -->
+    <polygon points="600,280 625,268 645,280 640,305 615,315 595,300" fill="#b09070" stroke="#c4a080" stroke-width="1"/>
+    
+    <!-- Small asteroid 2 -->
+    <polygon points="160,320 180,310 195,325 190,348 165,355 148,340" fill="#9a8060" stroke="#b09070" stroke-width="1"/>
+  </g>
+  
+  <!-- Ship (center) -->
+  <g transform="translate(400,225) rotate(-90)">
+    <!-- Ship glow -->
+    <ellipse cx="0" cy="0" rx="30" ry="30" fill="#7b68ee" opacity="0.25" filter="url(#blur)"/>
+    <!-- Ship body -->
+    <polygon points="30,0 -15,15 -10,0 -15,-15" fill="#7b68ee"/>
+    <!-- Ship highlight -->
+    <polygon points="25,0 -8,8 -5,0 -8,-8" fill="#9b88ff" opacity="0.6"/>
+    <!-- Cockpit -->
+    <circle cx="10" cy="0" r="5" fill="#00e5ff" opacity="0.8"/>
+    <!-- Thruster glow -->
+    <ellipse cx="-22" cy="0" rx="12" ry="6" fill="#ff7040" opacity="0.8"/>
+    <ellipse cx="-28" cy="0" rx="8" ry="3" fill="#ffcc00" opacity="0.9"/>
+  </g>
+  
+  <!-- Bullet trails -->
+  <g>
+    <rect x="430" y="222" width="25" height="3" rx="1.5" fill="#00e5ff" opacity="0.9"/>
+    <rect x="455" y="222" width="40" height="2" rx="1" fill="#00e5ff" opacity="0.4"/>
+    <rect x="430" y="228" width="20" height="3" rx="1.5" fill="#00e5ff" opacity="0.7"/>
+  </g>
+  
+  <!-- Shield effect -->
+  <circle cx="400" cy="225" r="45" fill="none" stroke="#40e0ff" stroke-width="2" stroke-dasharray="6,4" opacity="0.5"/>
+  
+  <!-- Score overlay -->
+  <rect x="0" y="0" width="800" height="450" fill="url(#space)" opacity="0.3"/>
+  
+  <!-- Title text area gradient -->
+  <rect x="0" y="360" width="800" height="90" fill="#000000" opacity="0.5"/>
+  
+  <!-- Particle effects -->
+  <g fill="#00e5ff" opacity="0.6">
+    <circle cx="490" cy="200" r="2"/>
+    <circle cx="510" cy="215" r="1.5"/>
+    <circle cx="505" cy="235" r="2.5"/>
+    <circle cx="525" cy="220" r="1"/>
+  </g>
+  
+  <!-- Title -->
+  <text x="40" y="410" font-family="sans-serif" font-size="36" font-weight="900" fill="#ffffff" letter-spacing="-1">ASTEROID</text>
+  <text x="40" y="442" font-family="sans-serif" font-size="20" font-weight="700" fill="#7b68ee" letter-spacing="3">FURY</text>
+</svg>

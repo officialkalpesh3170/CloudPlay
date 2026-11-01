@@ -1,0 +1,449 @@
+.ludo-screen {
+  --ludo-bg: #090c16;
+  --ludo-panel: #111827;
+  --ludo-line: #252e44;
+  min-height: 100%;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+  padding: 0 32px 24px;
+  color: #f6f7ff;
+  background: radial-gradient(ellipse at 48% -15%, #233151 0, transparent 43%), var(--ludo-bg);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  touch-action: manipulation;
+  overflow-x: hidden;
+}
+
+.ludo-header {
+  height: 78px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  border-bottom: 1px solid var(--ludo-line);
+}
+
+.ludo-back,
+.ludo-roll,
+.ludo-setup-row button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #f7f6ff;
+  background: #1a2133;
+  border: 1px solid #303a53;
+  border-radius: 10px;
+  padding: 10px 13px;
+  font-size: 12px;
+  font-weight: 700;
+  transition: 160ms ease;
+}
+
+.ludo-back:hover { background: #262d44; }
+
+.ludo-brand { display: flex; align-items: center; gap: 11px; }
+.ludo-brand-mark {
+  width: 39px;
+  height: 39px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  color: #fff;
+  background: linear-gradient(145deg, #a993ff, #7056db);
+  font-size: 21px;
+  font-weight: 900;
+  box-shadow: 0 5px 20px #8262ff45;
+}
+.ludo-brand strong, .ludo-brand small { display: block; }
+.ludo-brand strong { font-size: 15px; letter-spacing: -.25px; }
+.ludo-brand small { color: #8d96ab; font-size: 10px; margin-top: 4px; }
+.ludo-match-count { display: grid; justify-items: center; gap: 1px; margin-left: auto; min-width: 52px; }
+.ludo-match-count span { font-size: 18px; font-weight: 800; }
+.ludo-match-count small { color: #818ba2; font-size: 8px; letter-spacing: 1.3px; }
+
+.ludo-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 315px;
+  align-items: start;
+  gap: 32px;
+  max-width: 1330px;
+  margin: 28px auto 0;
+}
+
+.ludo-board-wrap { min-width: 0; }
+.ludo-board {
+  width: min(100%, 720px);
+  margin: 0 auto;
+  aspect-ratio: 1;
+  display: grid;
+  grid-template-columns: repeat(15, minmax(0, 1fr));
+  grid-template-rows: repeat(15, minmax(0, 1fr));
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;
+  border: 6px solid #e5e7ee;
+  border-radius: 16px;
+  background: #e5e7ee;
+  box-shadow: 0 28px 70px #0007, 0 0 0 1px #ffffff27;
+}
+
+.ludo-square {
+  min-width: 0;
+  min-height: 0;
+  position: relative;
+  display: grid;
+  place-items: center;
+  background: #f2f3f5;
+  border: .5px solid #d8dce5;
+}
+
+.ludo-square.base-green { background: #daf5e8; border-color: #b4e8ce; }
+.ludo-square.base-red { background: #ffe0e3; border-color: #f5bfc7; }
+.ludo-square.base-yellow { background: #fff0c9; border-color: #f4dca0; }
+.ludo-square.base-blue { background: #deebff; border-color: #bfd5fa; }
+.ludo-square.is-track { background: #fff; border-color: #d9dce3; }
+.ludo-square.lane-green { background: #42c98e; border-color: #2eb77a; }
+.ludo-square.lane-red { background: #f35569; border-color: #e64257; }
+.ludo-square.lane-yellow { background: #f7b832; border-color: #e1a321; }
+.ludo-square.lane-blue { background: #4b8df2; border-color: #3679e1; }
+.ludo-square.safe-square { background: #faf9ff; }
+.ludo-square.home-spot { background: #ffffffa8; border-color: #ffffffc9; }
+.ludo-square.center-underlay { background: #f2f3f5; }
+
+.home-pad {
+  width: 64%;
+  height: 64%;
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  background: #ffffff8c;
+  box-shadow: 0 2px 7px #17203318, inset 0 1px 2px #17203312;
+}
+
+.safe-star {
+  color: #aa9bbd;
+  font-size: clamp(9px, 1.5vw, 16px);
+  line-height: 1;
+  opacity: .65;
+}
+
+.ludo-token-pile {
+  position: absolute;
+  inset: 3%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  flex-wrap: wrap;
+  z-index: 5;
+}
+
+.ludo-token {
+  width: min(88%, 37px);
+  aspect-ratio: 1;
+  padding: 0;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: clamp(7px, 1.1vw, 11px);
+  font-weight: 900;
+  line-height: 1;
+  box-shadow: 0 3px 6px #131a2a4d, inset 0 -3px 5px #0002;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+  position: relative;
+  z-index: 1;
+}
+
+.pile-many .ludo-token { width: 47%; }
+.token-red { background: linear-gradient(145deg, #ff8290, #e9435a); }
+.token-green { background: linear-gradient(145deg, #7de9bc, #23ae73); }
+.token-yellow { background: linear-gradient(145deg, #ffdc81, #eaa51a); color: #60420b; }
+.token-blue { background: linear-gradient(145deg, #9dc1ff, #3b78de); }
+.ludo-token:disabled { cursor: default; }
+.ludo-token.token-legal {
+  cursor: pointer;
+  outline: 3px solid #fff;
+  animation: ludo-token-pulse 950ms ease-in-out infinite alternate;
+}
+.ludo-token.token-legal:hover { z-index: 3; transform: scale(1.22); }
+.ludo-token.token-finished { background: #b18cff; border-color: #f2eaff; }
+
+/* Square clickable touch targets for mobile accessibility */
+.ludo-square.is-movable-square {
+  cursor: pointer;
+  box-shadow: inset 0 0 0 2px #7c3aed, 0 0 10px rgba(124, 58, 237, 0.45);
+  animation: ludo-square-glow 950ms ease-in-out infinite alternate;
+  z-index: 2;
+}
+
+@keyframes ludo-square-glow {
+  from { filter: brightness(1.05); }
+  to { filter: brightness(1.25); box-shadow: inset 0 0 0 2.5px #a855f7, 0 0 14px rgba(168, 85, 247, 0.7); }
+}
+
+@keyframes ludo-token-pulse {
+  from { box-shadow: 0 0 0 2px #9274ff66, 0 3px 6px #131a2a4d; }
+  to { box-shadow: 0 0 0 6px #9274ff31, 0 4px 13px #131a2a70; }
+}
+
+.ludo-center {
+  position: absolute;
+  z-index: 3;
+  left: 40%;
+  top: 40%;
+  width: 20%;
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  background: conic-gradient(from -45deg, #ffc34d 0 25%, #5c9aff 25% 50%, #ff5e70 50% 75%, #48d6a0 75% 100%);
+  color: #fff;
+  text-shadow: 0 1px 5px #0008;
+  font-size: clamp(7px, 1vw, 12px);
+  font-weight: 900;
+  letter-spacing: 1px;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 3px #fff;
+}
+
+.ludo-center span,
+.ludo-center svg { z-index: 2; }
+.ludo-board-legend { width: min(100%, 720px); margin: 13px auto 0; display: flex; justify-content: center; flex-wrap: wrap; gap: 10px 18px; color: #949eb2; font-size: 10px; }
+.ludo-board-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.ludo-board-legend i { width: 9px; height: 9px; display: inline-block; border-radius: 3px; }
+.legend-safe { background: #d3c5e6; }
+.legend-finish { background: #48d6a0; }
+
+.ludo-panel {
+  background: linear-gradient(145deg, #141c2d, #101521);
+  border: 1px solid #29334a;
+  border-radius: 18px;
+  padding: 21px;
+  box-shadow: 0 22px 55px #0004;
+}
+.ludo-eyebrow { color: #a995ff; font-size: 9px; letter-spacing: 1.7px; font-weight: 800; }
+.ludo-panel-top h1 { margin: 9px 0 7px; font-size: 26px; letter-spacing: -1.3px; }
+.ludo-panel-top h1 em { color: #a48aff; font-style: normal; }
+.ludo-panel-top p { margin: 0; color: #939db2; font-size: 11px; line-height: 1.6; }
+
+.ludo-active-player {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 12px;
+  border: 1px solid #ffffff16;
+  border-radius: 12px;
+  background: #ffffff08;
+}
+.active-player-dot, .player-chip { width: 11px; height: 11px; border-radius: 50%; flex: 0 0 auto; }
+.active-red .active-player-dot, .chip-red { background: #ff6376; box-shadow: 0 0 11px #ff637655; }
+.active-green .active-player-dot, .chip-green { background: #4bd7a0; box-shadow: 0 0 11px #4bd7a055; }
+.active-yellow .active-player-dot, .chip-yellow { background: #ffc34d; box-shadow: 0 0 11px #ffc34d55; }
+.active-blue .active-player-dot, .chip-blue { background: #639dff; box-shadow: 0 0 11px #639dff55; }
+.ludo-active-player div { flex: 1; display: grid; gap: 3px; }
+.ludo-active-player small { color: #8d96aa; font-size: 8px; letter-spacing: 1px; }
+.ludo-active-player strong { font-size: 13px; }
+.active-token-count { color: #aeb7c9; font-size: 9px; display: inline-flex; align-items: center; }
+
+.ludo-dice-area {
+  min-height: 126px;
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 9px;
+  padding: 17px 0 12px;
+  border-bottom: 1px solid #283148;
+}
+.ludo-die {
+  width: 54px;
+  height: 54px;
+  padding: 8px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  place-items: center;
+  border-radius: 13px;
+  color: #8468ed;
+  background: linear-gradient(145deg, #fff, #e8eaff);
+  box-shadow: 0 6px 18px #0004, inset 0 1px #fff;
+}
+.ludo-die-empty { background: #20283b; color: #a994ff; border: 1px solid #373d5a; }
+.pip { width: 6px; height: 6px; background: currentColor; border-radius: 50%; opacity: 0; }
+.pip.visible { opacity: 1; }
+.ludo-roll { min-height: 40px; color: #fff; background: linear-gradient(110deg, #8566f1, #684bd5); border: 0; box-shadow: 0 5px 18px #7655e53d; }
+.ludo-roll:hover { transform: translateY(-1px); filter: brightness(1.1); }
+.ludo-choose-hint { margin: 4px 0; color: #c5b8ff; font-size: 10px; text-align: center; }
+.ludo-message { max-width: 265px; margin: 0; color: #9da6b9; font-size: 10px; line-height: 1.5; text-align: center; }
+
+.ludo-player-list { padding: 15px 0 10px; border-bottom: 1px solid #283148; }
+.ludo-list-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.ludo-list-heading h2 { margin: 0; font-size: 12px; }
+.ludo-list-heading > span { color: #808ba2; font-size: 9px; }
+.ludo-player-row { display: flex; align-items: center; gap: 9px; min-height: 34px; padding: 5px 7px; border: 1px solid transparent; border-radius: 8px; }
+.ludo-player-row.is-turn { background: #ffffff0d; border-color: #ffffff13; }
+.ludo-player-row strong { font-size: 10px; font-weight: 650; }
+.player-progress { margin-left: auto; color: #939db2; font-size: 9px; }
+.turn-pill { padding: 3px 5px; border-radius: 4px; color: #cbbdff; background: #785ee644; font-size: 7px; font-weight: 800; letter-spacing: .7px; }
+
+.ludo-setup { padding: 15px 0 12px; }
+.ludo-setup label { display: block; color: #9ba5b9; font-size: 9px; margin-bottom: 6px; }
+.ludo-setup-row { display: flex; gap: 8px; }
+.ludo-setup-row select { flex: 1; min-width: 0; color: #e8eaf2; background: #1b2233; border: 1px solid #303a53; border-radius: 8px; padding: 9px 10px; font-size: 10px; }
+.ludo-setup-row button { padding: 8px 11px; color: #fff; background: #302650; border-color: #55417f; font-size: 9px; }
+.ludo-setup-row button:hover { background: #413363; }
+.ludo-rules { padding: 12px; background: #171e30; border-radius: 10px; }
+.ludo-rules > div { display: flex; align-items: center; gap: 7px; color: #b4a3ff; }
+.ludo-rules strong { color: #e2def2; font-size: 10px; }
+.ludo-rules p { margin: 8px 0 0; color: #9aa4b8; font-size: 9px; line-height: 1.65; }
+.ludo-footer { max-width: 1330px; margin: 20px auto 0; display: flex; justify-content: space-between; gap: 14px; color: #78839a; font-size: 9px; }
+.ludo-footer span { color: #8b7bd3; }
+
+/* ── Mobile Quick Action HUD ─────────────────────────────────────────────── */
+.ludo-mobile-hud {
+  display: none;
+  background: linear-gradient(145deg, #161e31, #0f1523);
+  border: 1px solid #28334a;
+  border-radius: 14px;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.ludo-mobile-turn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.ludo-mobile-turn-info {
+  flex: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.ludo-mobile-turn-info small {
+  color: #94a3b8;
+  font-size: 9px;
+  letter-spacing: 0.8px;
+  font-weight: 700;
+}
+
+.ludo-mobile-turn-info strong {
+  font-size: 14px;
+  color: #f1f5f9;
+}
+
+.ludo-mobile-home-stat {
+  font-size: 10px;
+  font-weight: 700;
+  color: #a78bfa;
+  background: rgba(167, 139, 250, 0.15);
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(167, 139, 250, 0.3);
+}
+
+.ludo-mobile-action-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ludo-mobile-die {
+  flex-shrink: 0;
+}
+
+.ludo-mobile-die.can-tap {
+  cursor: pointer;
+  transform: scale(0.95);
+  transition: transform 0.15s ease;
+}
+
+.ludo-mobile-die.can-tap:active {
+  transform: scale(0.88);
+}
+
+.ludo-mobile-buttons {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.ludo-roll--mobile {
+  width: 100%;
+  min-height: 44px;
+  font-size: 13px;
+  padding: 10px 16px;
+  border-radius: 10px;
+}
+
+.ludo-roll--move {
+  background: linear-gradient(110deg, #10b981, #059669) !important;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4) !important;
+}
+
+.ludo-mobile-hint {
+  font-size: 11px;
+  color: #c4b5fd;
+  font-weight: 600;
+  padding: 8px 12px;
+  background: rgba(124, 58, 237, 0.15);
+  border-radius: 8px;
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  text-align: center;
+  width: 100%;
+}
+
+.ludo-mobile-message {
+  margin: 9px 0 0;
+  font-size: 11px;
+  color: #94a3b8;
+  text-align: center;
+  line-height: 1.4;
+}
+
+@media (max-width: 1000px) {
+  .ludo-screen { padding: 0 16px 20px; }
+  .ludo-layout { grid-template-columns: minmax(0, 1fr) 280px; gap: 16px; }
+  .ludo-panel { padding: 16px; }
+}
+
+@media (max-width: 860px) {
+  .ludo-mobile-hud { display: block; }
+  .ludo-screen { padding: 0 10px 18px; }
+  .ludo-header { height: 60px; gap: 10px; }
+  .ludo-back { padding: 8px 10px; font-size: 11px; }
+  .ludo-brand-mark { width: 32px; height: 32px; font-size: 17px; }
+  .ludo-brand strong { font-size: 13px; }
+  .ludo-brand small { font-size: 8px; }
+  .ludo-layout { grid-template-columns: 1fr; gap: 16px; margin-top: 12px; }
+  .ludo-board {
+    border-width: 3px;
+    border-radius: 12px;
+    max-width: min(100%, calc(100vw - 20px));
+  }
+  .ludo-token {
+    border-width: 1.5px;
+    font-size: clamp(8px, 2.5vw, 12px);
+    width: min(92%, 40px);
+  }
+  .safe-star { font-size: clamp(8px, 2vw, 13px); }
+  .ludo-panel { width: 100%; max-width: 100%; margin: 0; }
+  .ludo-panel-top { display: none; } /* Kept in mobile HUD */
+  .ludo-dice-area { display: none; } /* Kept in mobile HUD */
+  .ludo-panel-top h1 { font-size: 21px; }
+  .ludo-footer { flex-wrap: wrap; justify-content: center; text-align: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ludo-token.token-legal { animation: none; }
+  .ludo-back, .ludo-roll, .ludo-setup-row button, .ludo-token { transition: none; }
+}

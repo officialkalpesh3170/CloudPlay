@@ -1,0 +1,15 @@
+/* Library */
+.library { padding-top: 32px; }
+.library__header { margin-bottom: 32px; display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.library__summary { display: flex; align-items: center; gap: 18px; font-size: 13px; color: var(--text-secondary); flex-wrap: wrap; }
+.library__summary span { display: flex; align-items: center; gap: 6px; }
+.library__section { margin-bottom: 48px; }
+.library__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.library__empty { text-align: center; padding: 80px 24px; color: var(--text-secondary); }
+.library__empty span { font-size: 48px; }
+.library__empty h3 { font-size: 22px; margin: 18px 0 8px; color: var(--text-primary); }
+.library__empty p { font-size: 14px; margin: 0 0 24px; }
+.library__cta { display: inline-flex; align-items: center; background: var(--accent); color: white; padding: 12px 28px; border-radius: 30px; font-weight: 700; font-size: 14px; transition: var(--transition); }
+.library__cta:hover { background: var(--accent-light); }
+@media (max-width: 1000px) { .library__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px)  { .library__grid { grid-template-columns: 1fr; } }

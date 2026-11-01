@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19"/>
+      <stop offset="50%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#07090e"/>
+    </linearGradient>
+    <linearGradient id="tile-2048" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="50%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#facc15"/>
+    </linearGradient>
+    <linearGradient id="tile-1024" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#be185d"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+    <linearGradient id="tile-512" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6d28d9"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+    <filter id="neon-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bg)"/>
+
+  <!-- Cyber Grid Pattern -->
+  <g stroke="#00f0ff" stroke-width="1" opacity="0.08">
+    <line x1="0" y1="50" x2="800" y2="50"/>
+    <line x1="0" y1="100" x2="800" y2="100"/>
+    <line x1="0" y1="150" x2="800" y2="150"/>
+    <line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="250" x2="800" y2="250"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="350" x2="800" y2="350"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
+    
+    <line x1="100" y1="0" x2="100" y2="450"/>
+    <line x1="200" y1="0" x2="200" y2="450"/>
+    <line x1="300" y1="0" x2="300" y2="450"/>
+    <line x1="400" y1="0" x2="400" y2="450"/>
+    <line x1="500" y1="0" x2="500" y2="450"/>
+    <line x1="600" y1="0" x2="600" y2="450"/>
+    <line x1="700" y1="0" x2="700" y2="450"/>
+  </g>
+
+  <!-- Ambient Glow Circles -->
+  <circle cx="280" cy="225" r="160" fill="#00f0ff" opacity="0.12" filter="url(#neon-glow)"/>
+  <circle cx="540" cy="225" r="180" fill="#a855f7" opacity="0.1" filter="url(#neon-glow)"/>
+
+  <!-- Left: 2048 Game Board Visualization -->
+  <g transform="translate(90, 85)">
+    <!-- Board Base -->
+    <rect width="280" height="280" rx="14" fill="#0f172a" stroke="#1e293b" stroke-width="2"/>
+    
+    <!-- Cells row 0 -->
+    <rect x="15" y="15" width="55" height="55" rx="8" fill="#1e293b" stroke="#00f0ff" stroke-width="1" stroke-opacity="0.3"/>
+    <text x="42.5" y="52" fill="#00f0ff" font-family="system-ui, sans-serif" font-weight="800" font-size="24" text-anchor="middle">2</text>
+    
+    <rect x="80" y="15" width="55" height="55" rx="8" fill="#0f3938" stroke="#34d399" stroke-width="1" stroke-opacity="0.4"/>
+    <text x="107.5" y="52" fill="#34d399" font-family="system-ui, sans-serif" font-weight="800" font-size="24" text-anchor="middle">4</text>
+    
+    <rect x="145" y="15" width="55" height="55" rx="8" fill="#3d2d14" stroke="#fbbf24" stroke-width="1" stroke-opacity="0.5"/>
+    <text x="172.5" y="52" fill="#fbbf24" font-family="system-ui, sans-serif" font-weight="800" font-size="24" text-anchor="middle">8</text>
+
+    <rect x="210" y="15" width="55" height="55" rx="8" fill="#432210" stroke="#fb923c" stroke-width="1" stroke-opacity="0.5"/>
+    <text x="237.5" y="52" fill="#fb923c" font-family="system-ui, sans-serif" font-weight="800" font-size="22" text-anchor="middle">16</text>
+
+    <!-- Cells row 1 -->
+    <rect x="15" y="80" width="55" height="55" rx="8" fill="#4c1724" stroke="#f87171" stroke-width="1" stroke-opacity="0.6"/>
+    <text x="42.5" y="117" fill="#f87171" font-family="system-ui, sans-serif" font-weight="800" font-size="22" text-anchor="middle">32</text>
+
+    <rect x="80" y="80" width="55" height="55" rx="8" fill="#500724" stroke="#fb7185" stroke-width="1" stroke-opacity="0.6"/>
+    <text x="107.5" y="117" fill="#fb7185" font-family="system-ui, sans-serif" font-weight="800" font-size="22" text-anchor="middle">64</text>
+
+    <rect x="145" y="80" width="55" height="55" rx="8" fill="#78350f" stroke="#facc15" stroke-width="1.5"/>
+    <text x="172.5" y="117" fill="#fef08a" font-family="system-ui, sans-serif" font-weight="800" font-size="19" text-anchor="middle">128</text>
+
+    <rect x="210" y="80" width="55" height="55" rx="8" fill="url(#tile-512)" stroke="#c084fc" stroke-width="1.5"/>
+    <text x="237.5" y="117" fill="#ffffff" font-family="system-ui, sans-serif" font-weight="800" font-size="19" text-anchor="middle">256</text>
+
+    <!-- Cells row 2 -->
+    <rect x="15" y="145" width="55" height="55" rx="8" fill="url(#tile-512)" stroke="#d8b4fe" stroke-width="1.5"/>
+    <text x="42.5" y="182" fill="#ffffff" font-family="system-ui, sans-serif" font-weight="800" font-size="19" text-anchor="middle">512</text>
+
+    <rect x="80" y="145" width="55" height="55" rx="8" fill="url(#tile-1024)" stroke="#f472b6" stroke-width="1.5"/>
+    <text x="107.5" y="182" fill="#ffffff" font-family="system-ui, sans-serif" font-weight="800" font-size="17" text-anchor="middle">1024</text>
+
+    <!-- 2048 Mega Hero Tile -->
+    <rect x="145" y="145" width="120" height="120" rx="10" fill="url(#tile-2048)" stroke="#ffffff" stroke-width="2.5" filter="url(#neon-glow)"/>
+    <text x="205" y="220" fill="#ffffff" font-family="system-ui, sans-serif" font-weight="900" font-size="40" text-anchor="middle" letter-spacing="-1">2048</text>
+
+    <!-- Bottom Left Cells -->
+    <rect x="15" y="210" width="55" height="55" rx="8" fill="#1e293b" opacity="0.6"/>
+    <rect x="80" y="210" width="55" height="55" rx="8" fill="#1e293b" opacity="0.6"/>
+  </g>
+
+  <!-- Right: Title & Typography -->
+  <g transform="translate(420, 160)">
+    <rect x="0" y="-35" width="130" height="26" rx="13" fill="#00f0ff" fill-opacity="0.12" stroke="#00f0ff" stroke-width="1" stroke-opacity="0.4"/>
+    <text x="65" y="-18" fill="#00f0ff" font-family="system-ui, sans-serif" font-weight="700" font-size="11" text-anchor="middle" letter-spacing="2">OPEN SOURCE</text>
+
+    <text x="0" y="30" fill="#ffffff" font-family="system-ui, sans-serif" font-weight="900" font-size="52" letter-spacing="-1.5">
+      CYBER <tspan fill="#00f0ff">2048</tspan>
+    </text>
+
+    <text x="0" y="72" fill="#94a3b8" font-family="system-ui, sans-serif" font-weight="500" font-size="17">
+      Slide, combine &amp; master the matrix.
+    </text>
+
+    <g transform="translate(0, 105)">
+      <rect x="0" y="0" width="85" height="28" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="42.5" y="18" fill="#cbd5e1" font-family="system-ui, sans-serif" font-weight="600" font-size="12" text-anchor="middle">MIT Licence</text>
+
+      <rect x="95" y="0" width="95" height="28" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="142.5" y="18" fill="#cbd5e1" font-family="system-ui, sans-serif" font-weight="600" font-size="12" text-anchor="middle">Synth Audio</text>
+
+      <rect x="200" y="0" width="75" height="28" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="237.5" y="18" fill="#cbd5e1" font-family="system-ui, sans-serif" font-weight="600" font-size="12" text-anchor="middle">Undo</text>
+    </g>
+  </g>
+</svg>

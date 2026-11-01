@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a1a"/>
+      <stop offset="100%" stop-color="#050510"/>
+    </linearGradient>
+    <linearGradient id="board-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0d1020"/>
+      <stop offset="100%" stop-color="#080c18"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bg)"/>
+  
+  <!-- Grid lines (subtle) -->
+  <g stroke="#1a2040" stroke-width="1" opacity="0.6">
+    <line x1="250" y1="0" x2="250" y2="450"/>
+    <line x1="280" y1="0" x2="280" y2="450"/>
+    <line x1="310" y1="0" x2="310" y2="450"/>
+    <line x1="340" y1="0" x2="340" y2="450"/>
+    <line x1="370" y1="0" x2="370" y2="450"/>
+    <line x1="400" y1="0" x2="400" y2="450"/>
+    <line x1="430" y1="0" x2="430" y2="450"/>
+    <line x1="460" y1="0" x2="460" y2="450"/>
+    <line x1="490" y1="0" x2="490" y2="450"/>
+    <line x1="520" y1="0" x2="520" y2="450"/>
+    <line x1="550" y1="0" x2="550" y2="450"/>
+    
+    <line x1="250" y1="30" x2="550" y2="30"/>
+    <line x1="250" y1="60" x2="550" y2="60"/>
+    <line x1="250" y1="90" x2="550" y2="90"/>
+    <line x1="250" y1="120" x2="550" y2="120"/>
+    <line x1="250" y1="150" x2="550" y2="150"/>
+    <line x1="250" y1="180" x2="550" y2="180"/>
+    <line x1="250" y1="210" x2="550" y2="210"/>
+    <line x1="250" y1="240" x2="550" y2="240"/>
+    <line x1="250" y1="270" x2="550" y2="270"/>
+    <line x1="250" y1="300" x2="550" y2="300"/>
+    <line x1="250" y1="330" x2="550" y2="330"/>
+    <line x1="250" y1="360" x2="550" y2="360"/>
+    <line x1="250" y1="390" x2="550" y2="390"/>
+    <line x1="250" y1="420" x2="550" y2="420"/>
+  </g>
+  
+  <!-- Board border -->
+  <rect x="248" y="0" width="304" height="450" fill="url(#board-grad)" stroke="#2a3060" stroke-width="3" rx="2"/>
+  
+  <!-- Pieces on board - colorful stack -->
+  <!-- Row 15 - I piece cyan -->
+  <rect x="250" y="420" width="30" height="30" fill="#00e5ff" rx="2" stroke="#00b8cc" stroke-width="1"/>
+  <rect x="280" y="420" width="30" height="30" fill="#00e5ff" rx="2" stroke="#00b8cc" stroke-width="1"/>
+  <rect x="310" y="420" width="30" height="30" fill="#00e5ff" rx="2" stroke="#00b8cc" stroke-width="1"/>
+  <rect x="340" y="420" width="30" height="30" fill="#00e5ff" rx="2" stroke="#00b8cc" stroke-width="1"/>
+  
+  <!-- S piece green -->
+  <rect x="310" y="390" width="30" height="30" fill="#44ee88" rx="2" stroke="#33cc66" stroke-width="1"/>
+  <rect x="340" y="390" width="30" height="30" fill="#44ee88" rx="2" stroke="#33cc66" stroke-width="1"/>
+  <rect x="280" y="420" width="30" height="30" fill="#44ee88" rx="2" stroke="#33cc66" stroke-width="1" opacity="0"/>
+  
+  <!-- Z piece red -->
+  <rect x="250" y="390" width="30" height="30" fill="#ff4444" rx="2" stroke="#cc2222" stroke-width="1"/>
+  <rect x="280" y="390" width="30" height="30" fill="#ff4444" rx="2" stroke="#cc2222" stroke-width="1"/>
+  
+  <!-- L piece orange -->
+  <rect x="340" y="360" width="30" height="30" fill="#ff8844" rx="2" stroke="#cc5522" stroke-width="1"/>
+  <rect x="340" y="390" width="30" height="30" fill="#ff8844" rx="2" stroke="#cc5522" stroke-width="1"/>
+  <rect x="370" y="390" width="30" height="30" fill="#ff8844" rx="2" stroke="#cc5522" stroke-width="1"/>
+  <rect x="400" y="390" width="30" height="30" fill="#ff8844" rx="2" stroke="#cc5522" stroke-width="1"/>
+  
+  <!-- J piece blue -->
+  <rect x="400" y="360" width="30" height="30" fill="#4488ff" rx="2" stroke="#2255cc" stroke-width="1"/>
+  <rect x="400" y="390" width="30" height="30" fill="#4488ff" rx="2" stroke="#2255cc" stroke-width="1" opacity="0"/>
+  <rect x="430" y="360" width="30" height="30" fill="#4488ff" rx="2" stroke="#2255cc" stroke-width="1"/>
+  <rect x="460" y="360" width="30" height="30" fill="#4488ff" rx="2" stroke="#2255cc" stroke-width="1"/>
+  
+  <!-- T piece purple -->
+  <rect x="430" y="390" width="30" height="30" fill="#bb44ff" rx="2" stroke="#8822cc" stroke-width="1"/>
+  <rect x="460" y="390" width="30" height="30" fill="#bb44ff" rx="2" stroke="#8822cc" stroke-width="1"/>
+  <rect x="490" y="390" width="30" height="30" fill="#bb44ff" rx="2" stroke="#8822cc" stroke-width="1"/>
+  <rect x="460" y="360" width="30" height="30" fill="#bb44ff" rx="2" stroke="#8822cc" stroke-width="1" opacity="0"/>
+  
+  <!-- O piece yellow -->
+  <rect x="490" y="360" width="30" height="30" fill="#ffdd00" rx="2" stroke="#ccaa00" stroke-width="1"/>
+  <rect x="520" y="360" width="30" height="30" fill="#ffdd00" rx="2" stroke="#ccaa00" stroke-width="1"/>
+  <rect x="490" y="390" width="30" height="30" fill="#ffdd00" rx="2" stroke="#ccaa00" stroke-width="1"/>
+  <rect x="520" y="390" width="30" height="30" fill="#ffdd00" rx="2" stroke="#ccaa00" stroke-width="1"/>
+  
+  <!-- Falling T piece (current) with glow -->
+  <rect x="340" y="90" width="30" height="30" fill="#bb44ff" rx="2" stroke="#cc66ff" stroke-width="2" opacity="0.9"/>
+  <rect x="370" y="90" width="30" height="30" fill="#bb44ff" rx="2" stroke="#cc66ff" stroke-width="2" opacity="0.9"/>
+  <rect x="400" y="90" width="30" height="30" fill="#bb44ff" rx="2" stroke="#cc66ff" stroke-width="2" opacity="0.9"/>
+  <rect x="370" y="60" width="30" height="30" fill="#bb44ff" rx="2" stroke="#cc66ff" stroke-width="2" opacity="0.9"/>
+  
+  <!-- Ghost piece -->
+  <rect x="340" y="330" width="30" height="30" fill="#3344aa" rx="2" stroke="#4455cc" stroke-width="1" opacity="0.4"/>
+  <rect x="370" y="330" width="30" height="30" fill="#3344aa" rx="2" stroke="#4455cc" stroke-width="1" opacity="0.4"/>
+  <rect x="400" y="330" width="30" height="30" fill="#3344aa" rx="2" stroke="#4455cc" stroke-width="1" opacity="0.4"/>
+  <rect x="370" y="300" width="30" height="30" fill="#3344aa" rx="2" stroke="#4455cc" stroke-width="1" opacity="0.4"/>
+  
+  <!-- Side panel - NEXT -->
+  <rect x="580" y="30" width="100" height="120" fill="#0d1020" rx="8" stroke="#2a3060" stroke-width="1"/>
+  <text x="630" y="55" font-family="sans-serif" font-size="11" font-weight="700" fill="#8880cc" text-anchor="middle" letter-spacing="2">NEXT</text>
+  <!-- Next I piece -->
+  <rect x="594" y="70" width="20" height="20" fill="#00e5ff" rx="2"/>
+  <rect x="614" y="70" width="20" height="20" fill="#00e5ff" rx="2"/>
+  <rect x="634" y="70" width="20" height="20" fill="#00e5ff" rx="2"/>
+  <rect x="654" y="70" width="20" height="20" fill="#00e5ff" rx="2"/>
+  
+  <!-- Score panel -->
+  <rect x="580" y="175" width="100" height="80" fill="#0d1020" rx="8" stroke="#2a3060" stroke-width="1"/>
+  <text x="630" y="198" font-family="sans-serif" font-size="11" font-weight="700" fill="#8880cc" text-anchor="middle" letter-spacing="2">SCORE</text>
+  <text x="630" y="238" font-family="sans-serif" font-size="22" font-weight="900" fill="#ffffff" text-anchor="middle">48200</text>
+  
+  <!-- Title -->
+  <rect x="0" y="0" width="240" height="450" fill="#000000" opacity="0.3"/>
+  <text x="40" y="200" font-family="sans-serif" font-size="52" font-weight="900" fill="#ffffff" letter-spacing="-2">BLOCK</text>
+  <text x="40" y="248" font-family="sans-serif" font-size="32" font-weight="700" fill="#bb44ff" letter-spacing="2">DROP</text>
+  <text x="40" y="290" font-family="sans-serif" font-size="12" fill="#6677aa" letter-spacing="1">CLEAR LINES TO WIN</text>
+</svg>

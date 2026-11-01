@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="ow-sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+    <linearGradient id="ow-terrain" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#065f46"/>
+      <stop offset="50%" stop-color="#047857"/>
+      <stop offset="100%" stop-color="#064e3b"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#ow-sky)"/>
+
+  <!-- Low Poly 3D Mountains -->
+  <polygon points="0,320 180,180 340,320" fill="#1e293b"/>
+  <polygon points="260,320 460,140 680,320" fill="#0f172a"/>
+  <polygon points="560,320 720,200 800,320" fill="#1e293b"/>
+
+  <!-- Low Poly Ground Terrain Mesh -->
+  <polygon points="0,450 0,320 220,330 400,310 600,340 800,320 800,450" fill="url(#ow-terrain)"/>
+
+  <!-- 3D Third-Person Adventurer Avatar -->
+  <g transform="translate(400, 310) scale(1.3)">
+    <!-- Shadow -->
+    <ellipse cx="0" cy="20" rx="16" ry="6" fill="#000000" opacity="0.4"/>
+    <!-- Legs -->
+    <line x1="-5" y1="2" x2="-8" y2="18" stroke="#1e293b" stroke-width="4.5" stroke-linecap="round"/>
+    <line x1="5" y1="2" x2="8" y2="18" stroke="#1e293b" stroke-width="4.5" stroke-linecap="round"/>
+    <!-- Body / Jacket -->
+    <polygon points="-10,-18 10,-18 7,4 -7,4" fill="#0284c7"/>
+    <!-- Backpack -->
+    <rect x="-7" y="-16" width="14" height="12" rx="2" fill="#d97706"/>
+    <!-- Head -->
+    <circle cx="0" cy="-26" r="7" fill="#fed7aa"/>
+    <rect x="-6" y="-31" width="12" height="6" rx="2" fill="#475569"/>
+  </g>
+
+  <!-- Title & Typography -->
+  <g transform="translate(400, 75)">
+    <rect x="-80" y="-30" width="160" height="24" rx="12" fill="#0284c7" fill-opacity="0.15" stroke="#0284c7" stroke-width="1"/>
+    <text x="0" y="-14" fill="#38bdf8" font-family="system-ui, sans-serif" font-weight="800" font-size="11" text-anchor="middle" letter-spacing="2">3D OPEN WORLD</text>
+    <text x="0" y="25" fill="#ffffff" font-family="system-ui, sans-serif" font-weight="900" font-size="46" text-anchor="middle" letter-spacing="-1">
+      OPENWORLD <tspan fill="#38bdf8">3D</tspan>
+    </text>
+    <text x="0" y="55" fill="#94a3b8" font-family="system-ui, sans-serif" font-weight="600" font-size="13" text-anchor="middle">
+      Three.js &amp; Ammo.js Physics · 3D Terrain &amp; Character Exploration
+    </text>
+  </g>
+</svg>

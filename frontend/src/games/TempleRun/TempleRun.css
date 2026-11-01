@@ -1,0 +1,59 @@
+/* ── Temple Run Neon Styles ──────────────────────────────────────────────── */
+
+.temple-run-root {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #060014;
+  color: #ffffff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  touch-action: none;
+}
+
+.temple-run-root canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.temple-run-root .glow-cyan {
+  text-shadow: 0 0 10px #00e5ff, 0 0 20px #00e5ff;
+}
+
+.temple-run-root .glow-purple {
+  text-shadow: 0 0 10px #aa44ff, 0 0 24px #6600ff;
+}
+
+.temple-run-root .glow-red {
+  text-shadow: 0 0 10px #ff2244, 0 0 20px #ff0022;
+}
+
+.temple-run-exit-btn {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 50;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #cbd5e1;
+  padding: 0.45rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: all 0.15s ease;
+}
+
+.temple-run-exit-btn:hover {
+  background: rgba(30, 41, 59, 0.95);
+  color: #00f0ff;
+  border-color: #00f0ff;
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.3);
+}

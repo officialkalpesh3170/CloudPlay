@@ -1,0 +1,36 @@
+/* Achievements */
+.ach { padding-top: 32px; }
+.ach__header { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; margin-bottom: 36px; flex-wrap: wrap; }
+.ach__sub { font-size: 13px; color: var(--text-secondary); margin: 8px 0 0; }
+
+.ach__level-card { background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 20px 24px; display: flex; align-items: center; gap: 16px; min-width: 240px; }
+.ach__level-avatar { font-size: 40px; }
+.ach__level-card strong { font-size: 16px; font-weight: 700; display: block; margin-bottom: 3px; }
+.ach__level-card p { font-size: 12px; color: var(--accent-light); margin: 0 0 8px; font-weight: 700; }
+.ach__level-card small { font-size: 10px; color: var(--text-muted); }
+
+.ach__level-bar { height: 5px; background: rgba(123,104,238,0.15); border-radius: 3px; width: 140px; overflow: hidden; margin-bottom: 5px; }
+.ach__level-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--cyan)); border-radius: 3px; transition: width 0.8s; }
+
+.ach__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+
+.ach__card { display: flex; align-items: center; gap: 14px; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 16px; transition: var(--transition); }
+.ach__card--done   { background: rgba(68,221,136,0.05); border-color: rgba(68,221,136,0.25); }
+.ach__card--locked { background: var(--bg-card); opacity: 0.55; }
+.ach__card--done:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+
+.ach__icon { font-size: 32px; flex-shrink: 0; }
+.ach__body { flex: 1; min-width: 0; }
+.ach__body strong { display: block; font-size: 13.5px; font-weight: 700; margin-bottom: 3px; }
+.ach__body p { font-size: 11px; color: var(--text-secondary); margin: 0; }
+
+.ach__xp { flex-shrink: 0; }
+.ach__xp-earned { font-size: 11px; font-weight: 700; color: var(--green); background: rgba(68,221,136,0.1); border: 1px solid rgba(68,221,136,0.2); padding: 3px 8px; border-radius: 4px; }
+.ach__xp-locked { font-size: 11px; color: var(--text-muted); }
+
+@media (max-width: 600px) {
+  .ach { padding-top: 16px; }
+  .ach__header { margin-bottom: 20px; }
+  .ach__level-card { width: 100%; min-width: unset; }
+  .ach__grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="54" y1="25" x2="900" y2="524" gradientUnits="userSpaceOnUse"><stop stop-color="#20244c"/><stop offset="1" stop-color="#10131f"/></linearGradient>
+    <linearGradient id="board" x1="330" y1="108" x2="643" y2="430" gradientUnits="userSpaceOnUse"><stop stop-color="#fff"/><stop offset="1" stop-color="#dfe5ef"/></linearGradient>
+    <filter id="shadow" x="254" y="55" width="464" height="474" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feGaussianBlur stdDeviation="16"/></filter>
+  </defs>
+  <path fill="url(#bg)" d="M0 0h960v540H0z"/>
+  <circle cx="480" cy="270" r="221" fill="#8065f0" fill-opacity=".1"/>
+  <circle cx="480" cy="270" r="164" fill="#927dff" fill-opacity=".09"/>
+  <path fill="#040610" fill-opacity=".5" d="M302 119h356v356H302z" filter="url(#shadow)"/>
+  <rect x="315" y="88" width="330" height="364" rx="28" fill="url(#board)"/>
+  <rect x="337" y="110" width="119" height="119" rx="23" fill="#f8dfe3"/>
+  <rect x="504" y="110" width="119" height="119" rx="23" fill="#f8efcf"/>
+  <rect x="337" y="311" width="119" height="119" rx="23" fill="#d5f1e4"/>
+  <rect x="504" y="311" width="119" height="119" rx="23" fill="#d8e6fb"/>
+  <g fill="#ff6376" stroke="#fff" stroke-width="6"><circle cx="374" cy="148" r="17"/><circle cx="419" cy="148" r="17"/><circle cx="374" cy="190" r="17"/><circle cx="419" cy="190" r="17"/></g>
+  <g fill="#ffc34d" stroke="#fff" stroke-width="6"><circle cx="541" cy="148" r="17"/><circle cx="586" cy="148" r="17"/><circle cx="541" cy="190" r="17"/><circle cx="586" cy="190" r="17"/></g>
+  <g fill="#48d6a0" stroke="#fff" stroke-width="6"><circle cx="374" cy="348" r="17"/><circle cx="419" cy="348" r="17"/><circle cx="374" cy="392" r="17"/><circle cx="419" cy="392" r="17"/></g>
+  <g fill="#5c9aff" stroke="#fff" stroke-width="6"><circle cx="541" cy="348" r="17"/><circle cx="586" cy="348" r="17"/><circle cx="541" cy="392" r="17"/><circle cx="586" cy="392" r="17"/></g>
+  <path fill="#fff" d="M456 229h48v82h-48z"/><path fill="#fff" d="M456 229h48v82h-48z" transform="rotate(90 456 229)"/>
+  <path d="m480 229 24 24-24 24-24-24 24-24Z" fill="#ffc34d"/><path d="m480 277 24 24-24 24-24-24 24-24Z" fill="#5c9aff"/><path d="m432 277 24 24-24 24-24-24 24-24Z" fill="#ff6376"/><path d="m528 277 24 24-24 24-24-24 24-24Z" fill="#48d6a0"/>
+  <rect x="74" y="135" width="142" height="142" rx="35" fill="#ff6376" fill-opacity=".12" stroke="#ff7d8c" stroke-opacity=".5"/><circle cx="145" cy="204" r="39" fill="#ff6376"/><text x="145" y="217" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="38" font-weight="800">1</text>
+  <rect x="746" y="265" width="142" height="142" rx="35" fill="#5c9aff" fill-opacity=".12" stroke="#6da5ff" stroke-opacity=".5"/><circle cx="817" cy="336" r="39" fill="#5c9aff"/><text x="817" y="349" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="38" font-weight="800">6</text>
+  <path d="M112 405c13-32 36-48 69-48" stroke="#b59fff" stroke-width="4" stroke-linecap="round" stroke-dasharray="5 10"/><path d="M845 130c-10 30-33 47-66 51" stroke="#b59fff" stroke-width="4" stroke-linecap="round" stroke-dasharray="5 10"/>
+  <text x="480" y="500" text-anchor="middle" fill="#eeeaff" font-family="Arial,sans-serif" font-size="20" font-weight="700" letter-spacing="5">ROLL TOGETHER</text>
+</svg>

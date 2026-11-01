@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="dh-sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="70%" stop-color="#7dd3fc"/>
+      <stop offset="100%" stop-color="#bae6fd"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sky & Meadow -->
+  <rect width="800" height="340" fill="url(#dh-sky)"/>
+  <rect y="340" width="800" height="110" fill="#15803d"/>
+  <rect y="340" width="800" height="18" fill="#22c55e"/>
+
+  <!-- Pixelated Retro Trees & Bush -->
+  <g fill="#166534">
+    <polygon points="120,340 160,240 200,340"/>
+    <polygon points="140,260 160,200 180,260"/>
+    <ellipse cx="640" cy="340" rx="90" ry="35" fill="#15803d"/>
+  </g>
+
+  <!-- Flying Pixel Duck -->
+  <g transform="translate(480, 180) scale(1.5)">
+    <!-- Wings Extended -->
+    <polygon points="-10,-15 15,-30 8,-10" fill="#1e293b"/>
+    <polygon points="-12,-8 10,-22 5,-5" fill="#334155"/>
+    <!-- Body -->
+    <ellipse cx="0" cy="0" rx="20" ry="12" fill="#78350f"/>
+    <!-- Green Head -->
+    <circle cx="16" cy="-6" r="9" fill="#15803d"/>
+    <!-- Yellow Beak -->
+    <polygon points="23,-8 34,-5 23,-3" fill="#facc15"/>
+    <circle cx="19" cy="-8" r="2" fill="#ffffff"/>
+  </g>
+
+  <!-- Sniper / Lightgun Reticle -->
+  <g transform="translate(480, 180)">
+    <circle cx="0" cy="0" r="32" fill="none" stroke="#ef4444" stroke-width="2.5"/>
+    <line x1="-42" y1="0" x2="-22" y2="0" stroke="#ef4444" stroke-width="2.5"/>
+    <line x1="22" y1="0" x2="42" y2="0" stroke="#ef4444" stroke-width="2.5"/>
+    <line x1="0" y1="-42" x2="0" y2="-22" stroke="#ef4444" stroke-width="2.5"/>
+    <line x1="0" y1="22" x2="0" y2="42" stroke="#ef4444" stroke-width="2.5"/>
+    <circle cx="0" cy="0" r="2.5" fill="#ef4444"/>
+  </g>
+
+  <!-- Title & Typography -->
+  <g transform="translate(240, 75)">
+    <rect x="-10" y="-30" width="130" height="24" rx="12" fill="#0f172a" fill-opacity="0.6"/>
+    <text x="55" y="-14" fill="#facc15" font-family="system-ui, sans-serif" font-weight="800" font-size="11" text-anchor="middle" letter-spacing="2">RETRO LIGHTGUN</text>
+    <text x="0" y="25" fill="#ffffff" font-family="system-ui, sans-serif" font-weight="900" font-size="48" letter-spacing="-1" stroke="#0f172a" stroke-width="4" paint-order="stroke fill">
+      DUCK <tspan fill="#22c55e">HUNT</tspan>
+    </text>
+  </g>
+</svg>

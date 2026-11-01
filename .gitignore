@@ -1,0 +1,40 @@
+# Node dependencies
+node_modules/
+frontend/node_modules/
+
+# Build output
+dist/
+frontend/dist/
+backend/dist/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+backend/venv/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*service-account*.json
+*credentials*.json
+
+# Logs
+*.log
+npm-debug.log*
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test caches
+.pytest_cache/
+.coverage
