@@ -16,3 +16,16 @@ body {
   background: #070910;
   color: #f0eeff;
 }
+.auth__switch {
+  color: #00e5ff;
+  text-decoration: underline;
+  cursor: pointer;
+  font: inherit;
+  border: 0;
+  background: transparent;
+  padding: 4px;
+}
+
+.auth__switch:hover {
+  color: #7b68ee;
+}
