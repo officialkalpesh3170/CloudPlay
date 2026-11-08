@@ -16,11 +16,13 @@ import AchievementToast from "./AchievementToast";
 import "../styles/layout.css";
 
 const NAV_ITEMS = [
+
   { to: "/",             icon: Home,      label: "Home"     },
   { to: "/explore",      icon: Compass,   label: "Explore"  },
   { to: "/library",      icon: BookOpen,  label: "Library"  },
   { to: "/achievements", icon: Trophy,    label: "Trophies" },
   { to: "/profile",      icon: User,      label: "Profile"  },
+  { to: "/auth", icon: User, label: "Sign in" },
   { to: "/kalpesh",      icon: Crown,     label: "Build by Kalpesh" },
 ];
 

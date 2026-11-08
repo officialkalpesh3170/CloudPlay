@@ -2,15 +2,16 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import Layout from "./components/Layout";
 import LoadingSpinner from "./components/LoadingSpinner";
+import "./styles/auth.css";
 
-// Lazy-loaded pages
-const Home       = lazy(() => import("./pages/Home"));
-const Explore    = lazy(() => import("./pages/Explore"));
+const Auth = lazy(() => import("./pages/Auth"));
+const Home = lazy(() => import("./pages/Home"));
+const Explore = lazy(() => import("./pages/Explore"));
 const GamePlayer = lazy(() => import("./pages/GamePlayer"));
-const Profile    = lazy(() => import("./pages/Profile"));
-const Library    = lazy(() => import("./pages/Library"));
+const Profile = lazy(() => import("./pages/Profile"));
+const Library = lazy(() => import("./pages/Library"));
 const Achievements = lazy(() => import("./pages/Achievements"));
-const Kalpesh    = lazy(() => import("./pages/Kalpesh"));
+const Kalpesh = lazy(() => import("./pages/Kalpesh"));
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { index: true, element: <Home /> },
+      { path: "auth", element: <Auth /> },
       { path: "explore", element: <Explore /> },
       { path: "library", element: <Library /> },
       { path: "achievements", element: <Achievements /> },
