@@ -7,7 +7,7 @@
  */
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
-
+import { auth } from "./firebase";
 /**
  * Health check for FastAPI backend
  */
@@ -67,17 +67,44 @@ export async function getBackendUsers() {
  * @param {string} userId
  * @param {object} profileData
  */
+
+/**
+ * Sync authenticated player's progression to FastAPI / Firestore
+ */
 export async function syncPlayerProfile(userId, profileData) {
   try {
+    const currentUser = auth.currentUser;
+
+    if (!currentUser) {
+      return {
+        synced: false,
+        error: "User is not authenticated",
+      };
+    }
+
+    const idToken = await currentUser.getIdToken();
+
     const res = await fetch(`${API_BASE_URL}/api/users/${userId}/sync`, {
       method: "PUT",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${idToken}`,
+      },
       body: JSON.stringify(profileData),
     });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return await res.json();
+
+    if (!res.ok) {
+      throw new Error(`HTTP ${res.status}`);
+    }
+
+    return {
+      synced: true,
+      data: await res.json(),
+    };
   } catch (err) {
-    // Graceful fallback to local storage
-    return { synced: false, error: err.message };
+    return {
+      synced: false,
+      error: err.message,
+    };
   }
 }

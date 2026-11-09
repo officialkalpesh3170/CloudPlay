@@ -3,7 +3,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field, EmailStr
 from typing import Optional, Dict, Any, List
 from app.database.firestore import db
-
+from fastapi import Depends
+from app.core.security import get_current_user
 app = FastAPI(
     title="CloudPlay API",
     description="Backend API for CloudPlay Gaming Platform",
@@ -219,17 +220,45 @@ def create_user(user: UserCreate):
     }
 
 # Sync Player Progression (XP, coins, high scores)
+
 @app.put("/api/users/{user_id}/sync")
-def sync_user_profile(user_id: str, profile: ProfileSync):
-    doc_ref = db.collection("users").document(user_id)
+def sync_user_profile(
+    user_id: str,
+    profile: ProfileSync,
+    current_user: dict = Depends(get_current_user)
+):
+    # UID must come from the verified Firebase ID token
+    firebase_uid = current_user["uid"]
+
+    # Prevent users from modifying another user's profile
+    if user_id != firebase_uid:
+        raise HTTPException(
+            status_code=403,
+            detail="You cannot modify another user's profile"
+        )
+
+    doc_ref = db.collection("users").document(firebase_uid)
     doc = doc_ref.get()
+
     if not doc.exists:
-        raise HTTPException(status_code=404, detail="User not found")
+        raise HTTPException(
+            status_code=404,
+            detail="User profile not found"
+        )
 
-    update_payload = {k: v for k, v in profile.model_dump().items() if v is not None}
+    update_payload = {
+        k: v
+        for k, v in profile.model_dump(exclude_none=True).items()
+    }
+
     doc_ref.update(update_payload)
-    return {"status": "success", "user_id": user_id, "updated": update_payload}
 
+    return {
+        "status": "success",
+        "user_id": firebase_uid,
+        "updated": update_payload
+    }
+                                                             
 @app.get("/health/firestore")
 def firestore_health():
     try:

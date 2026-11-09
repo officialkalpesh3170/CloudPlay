@@ -1,6 +1,9 @@
-﻿services:
-
+﻿
+services:
   backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
     image: cloudplay-backend:v1
     container_name: cloudplay-backend
     environment:
@@ -16,6 +19,9 @@
       - cloudplay-network
 
   frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
     image: cloudplay-frontend:v1
     container_name: cloudplay-frontend
     ports:
