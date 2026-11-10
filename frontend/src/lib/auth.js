@@ -3,6 +3,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
+import { ensureBackendProfile } from "../lib/api";
 
 import { auth } from "./firebase";
 

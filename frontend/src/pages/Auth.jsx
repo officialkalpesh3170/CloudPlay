@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../lib/firebase";
 import { login, logout, register } from "../lib/auth";
+import { ensureBackendProfile } from "../lib/api";
 
 export default function Auth() {
   const [user, setUser] = useState(null);
@@ -17,25 +18,43 @@ export default function Auth() {
     });
   }, []);
 
-  async function handleSubmit(event) {
-    event.preventDefault();
-    setMessage("");
-    setBusy(true);
+  
+async function handleSubmit(event) {
+  event.preventDefault();
+  setMessage("");
+  setBusy(true);
 
-    try {
-      if (mode === "signup") {
-        await register(email, password);
-        setMessage("Account created and signed in.");
-      } else {
-        await login(email, password);
-        setMessage("Logged in successfully.");
-      }
-    } catch (error) {
-      setMessage(error.message);
-    } finally {
-      setBusy(false);
+  try {
+    const credential =
+      mode === "signup"
+        ? await register(email, password)
+        : await login(email, password);
+
+    // Firebase authentication succeeded.
+    // Now initialize or retrieve the Firestore profile.
+    const result = await ensureBackendProfile(credential.user);
+
+    if (!result.success) {
+      setMessage(
+        `Authentication successful, but profile setup failed: ${result.error}`
+      );
+      return;
     }
+
+    setMessage(
+      result.data.created
+        ? "Account created and player profile initialized!"
+        : mode === "signup"
+          ? "Account created and signed in."
+          : "Logged in and player profile loaded."
+    );
+  } catch (error) {
+    setMessage(error.message);
+  } finally {
+    setBusy(false);
   }
+}
+
 
   async function handleLogout() {
     setMessage("");

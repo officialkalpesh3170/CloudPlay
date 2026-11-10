@@ -63,6 +63,43 @@ export async function getBackendUsers() {
 }
 
 /**
+ * Initialize or retrieve authenticated player's Firestore profile.
+ */
+export async function ensureBackendProfile(user) {
+  try {
+    if (!user) {
+      throw new Error("User is not authenticated");
+    }
+
+    const idToken = await user.getIdToken();
+
+    const res = await fetch(`${API_BASE_URL}/api/users/me`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${idToken}`,
+      },
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      throw new Error(data.detail || `HTTP ${res.status}`);
+    }
+
+    return {
+      success: true,
+      data,
+    };
+  } catch (err) {
+    return {
+      success: false,
+      error: err.message,
+    };
+  }
+}
+
+
+/**
  * Sync player progression (XP, coins, high score) to FastAPI / Firestore
  * @param {string} userId
  * @param {object} profileData
@@ -81,6 +118,7 @@ export async function syncPlayerProfile(userId, profileData) {
         error: "User is not authenticated",
       };
     }
+    
 
     const idToken = await currentUser.getIdToken();
 
