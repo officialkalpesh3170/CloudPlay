@@ -1,21 +1,35 @@
-﻿services:
-
+﻿
+services:
   backend:
     image: cloudplay-backend:v1
     container_name: cloudplay-backend
+
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+
+    ports:
+      - "8000:8000"
+
     environment:
       GOOGLE_APPLICATION_CREDENTIALS: /root/.config/gcloud/application_default_credentials.json
+
     volumes:
       - type: bind
         source: ${APPDATA}/gcloud/application_default_credentials.json
         target: /root/.config/gcloud/application_default_credentials.json
         read_only: true
+
     expose:
       - "8000"
+
     networks:
       - cloudplay-network
 
   frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
     image: cloudplay-frontend:v1
     container_name: cloudplay-frontend
     ports:

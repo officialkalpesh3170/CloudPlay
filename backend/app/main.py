@@ -3,7 +3,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field, EmailStr
 from typing import Optional, Dict, Any, List
 from app.database.firestore import db
-
+from fastapi import Depends
+from app.core.security import get_current_user
 app = FastAPI(
     title="CloudPlay API",
     description="Backend API for CloudPlay Gaming Platform",
@@ -218,18 +219,98 @@ def create_user(user: UserCreate):
         "user": user_data
     }
 
-# Sync Player Progression (XP, coins, high scores)
-@app.put("/api/users/{user_id}/sync")
-def sync_user_profile(user_id: str, profile: ProfileSync):
-    doc_ref = db.collection("users").document(user_id)
+
+@app.post("/api/users/me", status_code=status.HTTP_200_OK)
+def initialize_my_profile(
+    current_user: dict = Depends(get_current_user)
+):
+    firebase_uid = current_user["uid"]
+    email = current_user.get("email", "").lower()
+
+    if not email:
+        raise HTTPException(
+            status_code=400,
+            detail="Email missing from Firebase account"
+        )
+
+    doc_ref = db.collection("users").document(firebase_uid)
     doc = doc_ref.get()
+
+    # Return existing profile without resetting player progress
+    if doc.exists:
+        return {
+            "message": "Profile already exists",
+            "created": False,
+            "user_id": firebase_uid,
+            "user": doc.to_dict()
+        }
+
+    username = (
+        current_user.get("name")
+        or email.split("@")[0]
+    )[:30]
+
+    user_data = {
+        "uid": firebase_uid,
+        "username": username,
+        "email": email,
+        "xp": 0,
+        "coins": 100,
+        "level": 1,
+        "playtimeSeconds": 0,
+        "highScores": {},
+        "favouriteIds": []
+    }
+
+    doc_ref.set(user_data)
+
+    return {
+        "message": "Profile initialized successfully",
+        "created": True,
+        "user_id": firebase_uid,
+        "user": user_data
+    }
+
+# Sync Player Progression (XP, coins, high scores)
+
+@app.put("/api/users/{user_id}/sync")
+def sync_user_profile(
+    user_id: str,
+    profile: ProfileSync,
+    current_user: dict = Depends(get_current_user)
+):
+    # UID must come from the verified Firebase ID token
+    firebase_uid = current_user["uid"]
+
+    # Prevent users from modifying another user's profile
+    if user_id != firebase_uid:
+        raise HTTPException(
+            status_code=403,
+            detail="You cannot modify another user's profile"
+        )
+
+    doc_ref = db.collection("users").document(firebase_uid)
+    doc = doc_ref.get()
+
     if not doc.exists:
-        raise HTTPException(status_code=404, detail="User not found")
+        raise HTTPException(
+            status_code=404,
+            detail="User profile not found"
+        )
 
-    update_payload = {k: v for k, v in profile.model_dump().items() if v is not None}
+    update_payload = {
+        k: v
+        for k, v in profile.model_dump(exclude_none=True).items()
+    }
+
     doc_ref.update(update_payload)
-    return {"status": "success", "user_id": user_id, "updated": update_payload}
 
+    return {
+        "status": "success",
+        "user_id": firebase_uid,
+        "updated": update_payload
+    }
+                                                             
 @app.get("/health/firestore")
 def firestore_health():
     try:
